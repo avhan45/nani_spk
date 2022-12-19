@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Waktu pembuatan: 05 Nov 2022 pada 16.17
--- Versi server: 10.4.17-MariaDB
--- Versi PHP: 8.0.2
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 18 Des 2022 pada 04.33
+-- Versi server: 10.4.25-MariaDB
+-- Versi PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,6 +31,7 @@ CREATE TABLE `crips` (
   `id_crips` int(11) NOT NULL,
   `id_kriteria` int(11) NOT NULL,
   `crips` varchar(100) NOT NULL,
+  `keterangan` varchar(10) NOT NULL,
   `nilai` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -38,29 +39,29 @@ CREATE TABLE `crips` (
 -- Dumping data untuk tabel `crips`
 --
 
-INSERT INTO `crips` (`id_crips`, `id_kriteria`, `crips`, `nilai`) VALUES
-(1, 1, 'Menyususn rencana pembelajaran dengan baik', '1'),
-(2, 1, 'Melaksanakan pembelajaran dengan baik', '1'),
-(3, 1, 'Menerapkan pembelajaran yang mendidik', '1'),
-(4, 1, 'Mampu mengembangkan kurikulum dengan baik', '1'),
-(5, 1, 'Melakukan penilaian dan mengevaluasi peserta didik', '1'),
-(6, 2, 'Berperilaku sesuai dengan nilai dan norma', '1'),
-(7, 2, 'Bertanggung jawab', '1'),
-(8, 2, 'mempunyai jiwa kepemimpinan', '1'),
-(9, 2, 'Mandiri dan bijaksana', '1'),
-(10, 2, 'Mampu bekerja sama dalam tim', '1'),
-(11, 4, 'Menguasai materi pelajaran dengan baik', '1'),
-(12, 4, 'Menguasai standar kompetensi (SK), Kompetensi Dasar (KD),  dan tujuan pembelajaran dengan baik', '1'),
-(13, 4, 'Mampu mengembangkan materi pelajaran dengan kreatif', '1'),
-(14, 4, 'Mampu memanfaatkan teknologi informasi dan komunikasi dalam proses pembelajaran', '1'),
-(15, 5, 'Mampu menjalin hubungan dengan teman sejawat dan atasan', '1'),
-(16, 5, 'Mampu menjalin hubungan dengan peserta didik dan orang tua peserta didik', '1'),
-(17, 5, 'Mampu berkomunikasi dengan efektif menggunakan bahasa yang santun', '1'),
-(18, 6, 'Hadir tepat waktu disekolah', '1'),
-(19, 6, 'Masuk mengajar tepat waktu', '1'),
-(20, 6, 'Mengakhiri pembelajaran tepat waktu', '1'),
-(21, 6, 'Rapi dalam berpenampilan', '1'),
-(22, 5, 'Mampu menjalin hubungan dengan peserta didik dan orang tua peserta didik', '1');
+INSERT INTO `crips` (`id_crips`, `id_kriteria`, `crips`, `keterangan`, `nilai`) VALUES
+(2, 1, 'Menyusun dan membuat rencana pembelajaran', 'A', '35'),
+(3, 1, 'Melakukan penilaian dan mengevaluasi peserta didik', 'B', '25'),
+(4, 1, 'mengembangkan kurikulum dengan baik', 'C', '20'),
+(5, 1, 'Menerapkan pembelajaran yang mendidik', 'D', '10'),
+(6, 1, 'Melaksanakan pembelajaran dengan baik', 'E', '10'),
+(8, 2, 'Berperilaku sesuai dengan nilai dan norma', 'A', '30'),
+(9, 2, 'Tegas dan Bertanggung jawab', 'B', '20'),
+(10, 2, 'Mampu bekerja sama dalam tim', 'C', '20'),
+(11, 2, 'mempunyai jiwa kepemimpinan', 'D', '20'),
+(12, 2, 'Mandiri dan bijaksana', 'E', '10'),
+(13, 4, 'Menguasai materi pelajaran dengan baik', 'A', '40'),
+(14, 4, 'Menguasai standar kompetensi (SK), Kompetensi Dasar (KD),  dan tujuan pembelajaran dengan baik', 'B', '30'),
+(15, 4, 'Mampu mengembangkan materi pelajaran dengan kreatif', 'C', '20'),
+(16, 4, 'Mampu memanfaatkan teknologi informasi dan komunikasi dalam proses pembelajaran', 'D', '10'),
+(17, 5, 'Mampu berkomunikasi dan bergaul secara efektif dengan sesama pendidik, tenaga kependidikan dan atasa', 'A', '40'),
+(18, 5, 'Mampu bergaul dan berkomunikasi secara efektif dengan peserta didik, orang tua peserta didik dan mas', 'B', '30'),
+(19, 5, 'Mampu berkomunikasi dengan baik secara lisan, tulisan dan isyarat. ', 'C', '20'),
+(20, 5, 'mampu dalam mengambil keputusan dengan baik', 'D', '10'),
+(21, 6, 'melaksanakan tata tertib sekolah dengan baik', 'A', '40'),
+(22, 6, 'tepat waktu dalam mengajar', 'B', '30'),
+(23, 6, 'Mengakhiri pembelajaran tepat waktu', 'C', '20'),
+(24, 6, 'Rapi dalam berpenampilan', 'D', '10');
 
 -- --------------------------------------------------------
 
@@ -107,8 +108,8 @@ CREATE TABLE `kriteria` (
 INSERT INTO `kriteria` (`id_kriteria`, `kd_kriteria`, `nama_kriteria`, `attribut`, `bobot`) VALUES
 (1, 'C1', 'nilai keterampilan mengajar', 'benefit', 30),
 (2, 'C2', 'nilai kepribadian', 'benefit', 25),
-(4, 'C3', 'nilai profesional', 'benefit', 20),
-(5, 'C4', 'nilai sosial', 'benefit', 15),
+(4, 'C3', 'nilai profesional', 'benefit', 15),
+(5, 'C4', 'nilai sosial', 'benefit', 20),
 (6, 'C5', 'nilai kedisiplinan', 'benefit', 10);
 
 -- --------------------------------------------------------
@@ -131,29 +132,29 @@ CREATE TABLE `nilai` (
 INSERT INTO `nilai` (`id_nilai`, `id_guru`, `id_kriteria`, `nilai`) VALUES
 (2, 15, 1, '5'),
 (3, 15, 2, '4'),
-(4, 15, 4, '3'),
-(5, 15, 5, '3'),
-(6, 15, 6, '2'),
+(4, 15, 4, '4'),
+(5, 15, 5, '4'),
+(6, 15, 6, '5'),
 (7, 16, 1, '4'),
 (8, 16, 2, '3'),
 (9, 16, 4, '3'),
 (10, 16, 5, '3'),
 (11, 16, 6, '2'),
 (12, 17, 1, '5'),
-(13, 17, 2, '4'),
-(14, 17, 4, '3'),
-(15, 17, 5, '4'),
-(16, 17, 6, '3'),
-(17, 18, 1, '4'),
-(18, 18, 2, '4'),
-(19, 18, 4, '2'),
-(20, 18, 5, '3'),
-(21, 18, 6, '2'),
-(22, 19, 1, '4'),
-(23, 19, 2, '5'),
-(24, 19, 4, '3'),
-(25, 19, 5, '3'),
-(26, 19, 6, '4');
+(13, 17, 2, '3'),
+(14, 17, 4, '4'),
+(15, 17, 5, '3'),
+(16, 17, 6, '5'),
+(18, 18, 1, '4'),
+(19, 18, 2, '3'),
+(20, 18, 4, '2'),
+(21, 18, 5, '3'),
+(22, 18, 6, '2'),
+(23, 19, 1, '4'),
+(24, 19, 2, '3'),
+(25, 19, 4, '3'),
+(26, 19, 5, '3'),
+(27, 19, 6, '3');
 
 -- --------------------------------------------------------
 
@@ -173,31 +174,31 @@ CREATE TABLE `normalisasi` (
 --
 
 INSERT INTO `normalisasi` (`id_normalisasi`, `id_guru`, `id_kriteria`, `nilai_normalisasi`) VALUES
-(157, 15, 1, '1.00'),
-(158, 15, 2, '0.80'),
-(159, 15, 4, '1.00'),
-(160, 15, 5, '0.75'),
-(161, 15, 6, '0.50'),
-(162, 16, 1, '0.80'),
-(163, 16, 2, '0.60'),
-(164, 16, 4, '1.00'),
-(165, 16, 5, '0.75'),
-(166, 16, 6, '0.50'),
-(167, 17, 1, '1.00'),
-(168, 17, 2, '0.80'),
-(169, 17, 4, '1.00'),
-(170, 17, 5, '1.00'),
-(171, 17, 6, '0.75'),
-(172, 18, 1, '0.80'),
-(173, 18, 2, '0.80'),
-(174, 18, 4, '0.67'),
-(175, 18, 5, '0.75'),
-(176, 18, 6, '0.50'),
-(177, 19, 1, '0.80'),
-(178, 19, 2, '1.00'),
-(179, 19, 4, '1.00'),
-(180, 19, 5, '0.75'),
-(181, 19, 6, '1.00');
+(1, 15, 1, '1.00'),
+(2, 15, 2, '1.00'),
+(3, 15, 4, '1.00'),
+(4, 15, 5, '1.00'),
+(5, 15, 6, '1.00'),
+(6, 16, 1, '0.80'),
+(7, 16, 2, '0.75'),
+(8, 16, 4, '0.75'),
+(9, 16, 5, '0.75'),
+(10, 16, 6, '0.40'),
+(11, 17, 1, '1.00'),
+(12, 17, 2, '0.75'),
+(13, 17, 4, '1.00'),
+(14, 17, 5, '0.75'),
+(15, 17, 6, '1.00'),
+(16, 18, 1, '0.80'),
+(17, 18, 2, '0.75'),
+(18, 18, 4, '0.50'),
+(19, 18, 5, '0.75'),
+(20, 18, 6, '0.40'),
+(21, 19, 1, '0.80'),
+(22, 19, 2, '0.75'),
+(23, 19, 4, '0.75'),
+(24, 19, 5, '0.75'),
+(25, 19, 6, '0.60');
 
 -- --------------------------------------------------------
 
@@ -217,31 +218,31 @@ CREATE TABLE `perhitungan` (
 --
 
 INSERT INTO `perhitungan` (`id_perhitungan`, `id_guru`, `id_kriteria`, `nilai_perhitungan`) VALUES
-(151, 15, 1, 0.3),
-(152, 16, 1, 0.24),
-(153, 17, 1, 0.3),
-(154, 18, 1, 0.24),
-(155, 19, 1, 0.24),
-(156, 15, 2, 0.2),
-(157, 16, 2, 0.15),
-(158, 17, 2, 0.2),
-(159, 18, 2, 0.2),
-(160, 19, 2, 0.25),
-(161, 15, 4, 0.2),
-(162, 16, 4, 0.2),
-(163, 17, 4, 0.2),
-(164, 18, 4, 0.134),
-(165, 19, 4, 0.2),
-(166, 15, 5, 0.1125),
-(167, 16, 5, 0.1125),
-(168, 17, 5, 0.15),
-(169, 18, 5, 0.1125),
-(170, 19, 5, 0.1125),
-(171, 15, 6, 0.05),
-(172, 16, 6, 0.05),
-(173, 17, 6, 0.075),
-(174, 18, 6, 0.05),
-(175, 19, 6, 0.1);
+(1, 15, 1, 0.3),
+(2, 16, 1, 0.24),
+(3, 17, 1, 0.3),
+(4, 18, 1, 0.24),
+(5, 19, 1, 0.24),
+(6, 15, 2, 0.25),
+(7, 16, 2, 0.1875),
+(8, 17, 2, 0.1875),
+(9, 18, 2, 0.1875),
+(10, 19, 2, 0.1875),
+(11, 15, 4, 0.2),
+(12, 16, 4, 0.15),
+(13, 17, 4, 0.2),
+(14, 18, 4, 0.1),
+(15, 19, 4, 0.15),
+(16, 15, 5, 0.15),
+(17, 16, 5, 0.1125),
+(18, 17, 5, 0.1125),
+(19, 18, 5, 0.1125),
+(20, 19, 5, 0.1125),
+(21, 15, 6, 0.1),
+(22, 16, 6, 0.04),
+(23, 17, 6, 0.1),
+(24, 18, 6, 0.04),
+(25, 19, 6, 0.06);
 
 -- --------------------------------------------------------
 
@@ -260,12 +261,12 @@ CREATE TABLE `rangking` (
 --
 
 INSERT INTO `rangking` (`id_rangking`, `id_guru`, `nilai_rangking`) VALUES
-(126, 0, ''),
-(127, 15, '0.86250001'),
-(128, 16, '0.75250000'),
-(129, 17, '0.92500002'),
-(130, 18, '0.73649999'),
-(131, 19, '0.90249999');
+(1, 0, ''),
+(2, 15, '1.00000002'),
+(3, 16, '0.72999999'),
+(4, 17, '0.90000001'),
+(5, 18, '0.67999999'),
+(6, 19, '0.74999999');
 
 -- --------------------------------------------------------
 
@@ -346,7 +347,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `crips`
 --
 ALTER TABLE `crips`
-  MODIFY `id_crips` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_crips` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `guru`
@@ -364,25 +365,25 @@ ALTER TABLE `kriteria`
 -- AUTO_INCREMENT untuk tabel `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `normalisasi`
 --
 ALTER TABLE `normalisasi`
-  MODIFY `id_normalisasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+  MODIFY `id_normalisasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `perhitungan`
 --
 ALTER TABLE `perhitungan`
-  MODIFY `id_perhitungan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+  MODIFY `id_perhitungan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `rangking`
 --
 ALTER TABLE `rangking`
-  MODIFY `id_rangking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id_rangking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

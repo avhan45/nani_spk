@@ -52,7 +52,21 @@ $res = mysqli_query($con,$query2);
                   <tr>
                     <th scope="row"><?= $no++; ?></th>
                     <td ><?= $row['kd_kriteria']; ?></td>
-                    <td><?= $row['crips']; ?></td>
+                    <td style="width: 60% !important;">
+                      <?php
+                      $crips = $row['crips'];
+                      $sub = strlen($crips);
+                      if($sub > 70){
+                      ?>
+                      <!-- <?= $sub ?> -->
+                      <?= substr($row['crips'],0,70); ?> 
+                      <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#lanjut<?= $row['id_crips'] ?>">
+                          Lanjut
+                        </button>
+                      <?php }else{  ?>
+                        <?= $crips; ?>
+                        <?php } ?>
+                    </td>
                     <td><?= $row['keterangan']; ?></td>
                     <td><?= $row['nilai']; ?></td>
 
@@ -64,6 +78,23 @@ $res = mysqli_query($con,$query2);
                       </td>
 
                     </tr>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="lanjut<?= $row['id_crips'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                    <p>
+                                      <?= $row['crips'] ?>
+                                    </p>
+                                  </div>
+                                 
+                            </div>
+                          </div>
+                        </div>
                   <?php endforeach; ?>
                  
                 </tbody>
@@ -72,12 +103,17 @@ $res = mysqli_query($con,$query2);
 
             </div>
           </div>
+                      <!-- Lanjut Baca -->
+                     <!-- Button trigger modal -->
+                        
 
+                     
         </div>
       </div>
     </section>
 
   </main><!-- End #main -->
+
 
   <!-- ======= Footer ======= -->
   
@@ -101,12 +137,11 @@ $res = mysqli_query($con,$query2);
   <script>
     
     $(document).ready(function() {
-
-      if($("#ya").val() == 1){
-        $("#ya").attr("checked", true);
-      }else{
-        $("#ya").attr("checked", false);
-      }
+      // if($("#ya").val() == 1){
+      //   $("#ya").attr("checked", true);
+      // }else{
+      //   $("#ya").attr("checked", false);
+      // }
       // $.ajax({
       //   type: "POST",
       //   url: "core/ajax.php",
@@ -117,6 +152,7 @@ $res = mysqli_query($con,$query2);
       //   success: function
       // });
     });
+
   </script>
 
 
