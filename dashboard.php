@@ -1,4 +1,5 @@
 <?php 
+$page = "Dashboard";
 include("template/headers.php");
 
 

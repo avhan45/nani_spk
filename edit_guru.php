@@ -1,4 +1,5 @@
 <?php 
+$page = "Data Guru";
 include("template/headers.php");
 include("core/config.php");
 include("core/fungsi.php");

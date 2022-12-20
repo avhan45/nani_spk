@@ -116,56 +116,96 @@ include_once("cek_user.php");
           <hr>
           
       <li class="nav-item mb-3">
-        <a class="nav-link collapsed " href="dashboard.php">
+        <a class="nav-link <?php if($page == 'Dashboard'){
+          echo '';
+        }else{
+          echo 'collapsed';
+        }
+         ?>" href="dashboard.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <hr>
       <li class="nav-item mb-3">
-        <a class="nav-link collapsed" href="data_guru.php">
+        <a class="nav-link <?php if($page == 'Data Guru'){
+          echo '';
+        }else{
+          echo 'collapsed';
+        }
+         ?>" href="data_guru.php">
           <i class="bi bi-calendar"></i>
           <span>Data Guru</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <hr>
       <li class="nav-item mb-3">
-        <a class="nav-link collapsed" href="data_kriteria.php">
+        <a class="nav-link <?php if($page == 'Data Kriteria'){
+          echo '';
+        }else{
+          echo 'collapsed';
+        }
+         ?>" href="data_kriteria.php">
           <i class="bi bi-list"></i>
           <span>Data Kriteria</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <hr>
       <li class="nav-item mb-3">
-        <a class="nav-link collapsed" href="data_sub_kriteria.php">
+        <a class="nav-link <?php if($page == 'Sub Kriteria'){
+          echo '';
+        }else{
+          echo 'collapsed';
+        }
+         ?>" href="data_sub_kriteria.php">
           <i class="bi bi-body-text"></i>
           <span>Data Sub Kriteria</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <hr>
       <li class="nav-item mb-3">
-        <a class="nav-link collapsed" href="nilai_guru.php">
+        <a class="nav-link <?php if($page == 'Nilai Guru'){
+          echo '';
+        }else{
+          echo 'collapsed';
+        }
+         ?>" href="nilai_guru.php">
           <i class="bi bi-pencil-square"></i>
           <span>Input Nilai Guru</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <hr>
       <li class="nav-item mb-3">
-        <a class="nav-link " href="hasil.php">
+        <a class="nav-link <?php if($page == 'Hasil Analisa'){
+          echo '';
+        }else{
+          echo 'collapsed';
+        }
+         ?>" href="hasil.php">
           <i class="bi bi-pie-chart-fill"></i>
           <span>Hasil Analisa</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <hr>
       <li class="nav-item mb-3">
-        <a class="nav-link " href="laporan.php" target="_blank">
+        <a class="nav-link <?php if($page == 'Laporan'){
+          echo '';
+        }else{
+          echo 'collapsed';
+        }
+         ?>" href="laporan.php" target="_blank">
           <i class="bi bi-journal-medical"></i>
           <span>Laporan</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <hr>
       <li class="nav-item mb-3">
-        <a class="nav-link " href="user.php">
+        <a class="nav-link <?php if($page == 'User'){
+          echo '';
+        }else{
+          echo 'collapsed';
+        }
+         ?>" href="user.php">
           <i class="bi bi-gear-fill"></i>
           <span>Manajemen User</span>
         </a>

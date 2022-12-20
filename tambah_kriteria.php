@@ -1,4 +1,5 @@
 <?php 
+$page = "Data Kriteria";
 include("template/headers.php");
 include("core/config.php");
 include("core/fungsi.php");

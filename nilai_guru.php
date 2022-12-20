@@ -1,4 +1,5 @@
 <?php 
+$page = "Nilai Guru";
 include("template/headers.php");
 include("core/config.php");
 

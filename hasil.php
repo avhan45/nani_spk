@@ -1,4 +1,5 @@
 <?php 
+$page = "Hasil Analisa";
 include("core/config.php");
 include("core/fungsi.php");
 include("template/headers.php");
