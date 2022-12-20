@@ -17,7 +17,7 @@ $query = mysqli_query($con, "SELECT * FROM kriteria");
 
     <section class="section">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
 
           <div class="card">
             <div class="card-body">
@@ -39,7 +39,7 @@ $query = mysqli_query($con, "SELECT * FROM kriteria");
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-4 col-form-label">Nama Sub Kriteria</label>
                   <div class="col-sm-8">
-                    <input type="text" name="namasub" class="form-control">
+                    <textarea type="text" name="namasub" class="form-control"></textarea>
                   </div>
                 </div>
                 <div class="row mb-3">
