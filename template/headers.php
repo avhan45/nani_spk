@@ -198,19 +198,6 @@ include_once("cek_user.php");
           <span>Laporan</span>
         </a>
       </li><!-- End Dashboard Nav -->
-      <hr>
-      <li class="nav-item mb-3">
-        <a class="nav-link <?php if($page == 'User'){
-          echo '';
-        }else{
-          echo 'collapsed';
-        }
-         ?>" href="user.php">
-          <i class="bi bi-gear-fill"></i>
-          <span>Manajemen User</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-      <hr>
     </ul>
 
 

@@ -17,6 +17,9 @@ $result = mysqli_query($con, $query);
     </div><!-- End Page Title -->
 
     <a href="input_nilai.php" class="btn btn-primary mb-3"><i class="bi bi-plus"></i> Input Nilai</a>
+    <button onclick="history.back()" class="btn btn-secondary mb-3" style="float: right;"><i class="bi bi-arrow-return-left"></i> Kembali</button>
+    
+
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
